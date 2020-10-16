@@ -55,10 +55,16 @@ const App = () => {
 
   const postNewPizza = (newPizza) => {
     Axios
-      .post('http://reqres.in/api/users', newPizza)
+      .post('https://reqres.in/api/users', newPizza)
       .then((res) => {
         setPizza(res.data)
         console.log({pizza})
+      })
+      .catch((err) => {
+        alert(`Got an error there bud, ${err}`)
+      })
+      .finally(() => {
+        setFormValues(initialFormValues);
       })
   }
 
